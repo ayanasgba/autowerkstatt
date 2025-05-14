@@ -6,14 +6,15 @@ import lombok.*;
 import java.util.List;
 
 @Entity
-@Table(name = "customer")
+@Table(name = "mechanic")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Customer {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long customerId;
+public class Mechanic {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long mechanicId;
 
     @Column(nullable = false)
     private String firstName;
@@ -21,17 +22,15 @@ public class Customer {
     @Column(nullable = false)
     private String lastName;
 
+    private String specialization;
+
     @Column(nullable = false, unique = true)
     private String phone;
 
     @Column(unique = true)
     private String email;
 
-    private String address;
-
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Vehicle> vehicles;
-
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Appointment> appointments;
+    @OneToMany(mappedBy = "mechanic", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<RepairJob> repairJobs;
 }
+
