@@ -9,6 +9,6 @@ public interface CustomerDao {
     List<Customer> findAll();
     Optional<Customer> findById(int id);
     int save(Customer customer);
-    int update(Customer customer);
+    int update(int id, Customer customer);
     int deleteById(int id);
 }

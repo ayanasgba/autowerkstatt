@@ -64,7 +64,7 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
-    public int update(Customer c) {
+    public int update(int id, Customer c) {
         String sql = """
             UPDATE customer
                SET first_name = ?, last_name = ?, phone = ?, email = ?, address = ?
@@ -76,7 +76,7 @@ public class CustomerDaoImpl implements CustomerDao {
                 c.getPhone(),
                 c.getEmail(),
                 c.getAddress(),
-                c.getCustomerId()
+                id
         );
     }
 
