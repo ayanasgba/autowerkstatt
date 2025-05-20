@@ -31,7 +31,7 @@ public class CustomerController {
         customerService.save(customer);
     }
 
-    @PostMapping("/customer/delete/{id}")
+    @DeleteMapping("/customer/delete/{id}")
     public void deleteCustomer(@PathVariable int id) {
         customerService.delete(id);
     }
