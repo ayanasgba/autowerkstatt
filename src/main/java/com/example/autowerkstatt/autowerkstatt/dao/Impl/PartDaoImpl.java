@@ -79,7 +79,7 @@ public class PartDaoImpl implements PartDao {
 
     @Override
     public int deleteById(int id) {
-        String sql = "DELETE FROM part WHERE customer_id = ?";
+        String sql = "DELETE FROM part WHERE part_id = ?";
         return jdbc.update(sql, id);
     }
 }
